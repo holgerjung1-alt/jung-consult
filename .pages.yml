@@ -1,0 +1,65 @@
+
+media:
+  input: media
+  output: /media
+
+content:
+  - name: marken
+    label: Automarken
+    type: collection
+    path: daten/marken
+    format: json
+    fields:
+      - name: name
+        label: Markenname
+        type: string
+        required: true
+
+  - name: fahrzeuge
+    label: Fahrzeuge
+    type: collection
+    path: daten/fahrzeuge
+    format: json
+    fields:
+      - name: titel
+        label: Fahrzeugbezeichnung
+        type: string
+        required: true
+
+      - name: marke
+        label: Hersteller
+        type: string
+        required: true
+
+      - name: modell
+        label: Modell
+        type: string
+
+      - name: baujahr
+        label: Baujahr
+        type: number
+
+      - name: kilometerstand
+        label: Kilometerstand
+        type: number
+
+      - name: preis
+        label: Angebotspreis in Euro
+        type: number
+
+      - name: verkauft
+        label: Fahrzeug verkauft
+        type: boolean
+
+      - name: beschreibung
+        label: Fahrzeugbeschreibung
+        type: text
+
+      - name: instandsetzungen
+        label: Technische Instandsetzungen
+        type: text
+
+      - name: fotos
+        label: Fahrzeugfotos
+        type: image
+        list: true
