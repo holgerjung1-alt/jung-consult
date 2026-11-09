@@ -197,5 +197,64 @@
     </p>
   </footer>
 
+
+<script>
+async function ladeFahrzeuge() {
+  try {
+    const antwort = await fetch("fahrzeuge.json");
+    if (!antwort.ok) return;
+
+    const fahrzeuge = await antwort.json();
+    if (!fahrzeuge.length) return;
+
+    const bereich = document.createElement("section");
+    const titel = document.createElement("h2");
+    titel.textContent = "Unsere Fahrzeuge";
+    bereich.appendChild(titel);
+
+    for (const auto of fahrzeuge) {
+      const karte = document.createElement("article");
+
+      const name = document.createElement("h3");
+      name.textContent = auto.titel || "Fahrzeug";
+      karte.appendChild(name);
+
+      if (auto.fotos && auto.fotos.length) {
+        const bild = document.createElement("img");
+        bild.src = auto.fotos[0];
+        bild.alt = auto.titel || "Fahrzeug";
+        bild.style.maxWidth = "100%";
+        karte.appendChild(bild);
+      }
+
+      const info = document.createElement("p");
+      info.textContent =
+        (auto.modell || "") + " · " +
+        (auto.baujahr || "");
+      karte.appendChild(info);
+
+      if (auto.verkauft) {
+        const status = document.createElement("p");
+        status.textContent = "Verkauft";
+        karte.appendChild(status);
+      } else if (auto.preis != null) {
+        const preis = document.createElement("p");
+        preis.textContent =
+          Number(auto.preis).toLocaleString("de-DE") + " €";
+        karte.appendChild(preis);
+      }
+
+      bereich.appendChild(karte);
+    }
+
+    document.querySelector("main").appendChild(bereich);
+  } catch (fehler) {
+    console.error("Fahrzeugliste konnte nicht geladen werden", fehler);
+  }
+}
+
+ladeFahrzeuge();
+</script>
+
 </body>
 </html>
