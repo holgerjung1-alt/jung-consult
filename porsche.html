@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porsche | jung-consult</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #151515;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: normal;
+      letter-spacing: 3px;
+    }
+
+    a { color: #d4b879; }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .fahrzeuge {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(260px, 1fr)
+      );
+      gap: 25px;
+    }
+
+    .karte {
+      background: #242424;
+      border: 1px solid #484848;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .karte img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .karte h2 {
+      font-weight: normal;
+    }
+
+    .status { color: #d4b879; }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p><a href="index.html">← Zur Startseite</a></p>
+  <h1>PORSCHE</h1>
+  <p>Fahrzeuge von jung-consult</p>
+</header>
+
+<main>
+  <div id="fahrzeuge" class="fahrzeuge"></div>
+</main>
+
+<footer>
+  <a href="impressum.html">Impressum</a>
+  ·
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+<script>
+async function ladePorsche() {
+  const bereich = document.getElementById("fahrzeuge");
+
+  try {
+    const antwort = await fetch("fahrzeuge.json");
+    if (!antwort.ok) throw new Error("Ladefehler");
+
+    const alle = await antwort.json();
+    const porsche = alle.filter(
+      auto => auto.marke?.toLowerCase() === "porsche"
+    );
+
+    if (porsche.length === 0) {
+      bereich.textContent =
+        "Zurzeit sind keine Porsche-Fahrzeuge veröffentlicht.";
+      return;
+    }
+
+    for (const auto of porsche) {
+      const karte = document.createElement("article");
+      karte.className = "karte";
+
+      if (auto.fotos?.length) {
+        const bild = document.createElement("img");
+        bild.src = auto.fotos[0];
+        bild.alt = auto.titel || "Porsche";
+        karte.appendChild(bild);
+      }
+
+      const titel = document.createElement("h2");
+      titel.textContent = auto.titel || "Porsche";
+      karte.appendChild(titel);
+
+      const info = document.createElement("p");
+      info.textContent =
+        [auto.modell, auto.baujahr]
+          .filter(Boolean).join(" · ");
+      karte.appendChild(info);
+
+      const status = document.createElement("p");
+      status.className = "status";
+
+      if (auto.verkauft) {
+        status.textContent = "Verkauft";
+      } else if (auto.preis != null) {
+        status.textContent =
+          Number(auto.preis).toLocaleString("de-DE") + " €";
+      }
+
+      karte.appendChild(status);
+
+      const link = document.createElement("a");
+      link.href = "fahrzeug.html?id=" +
+        encodeURIComponent(auto.id);
+      link.textContent = "Fahrzeug ansehen";
+      karte.appendChild(link);
+
+      bereich.appendChild(karte);
+    }
+  } catch (fehler) {
+    bereich.textContent =
+      "Die Fahrzeuge konnten nicht geladen werden.";
+  }
+}
+
+ladePorsche();
+</script>
+
+</body>
+</html>
