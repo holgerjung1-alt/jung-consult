@@ -3,7 +3,7 @@
   "marke": "Porsche",
   "modell": "996",
   "baujahr": 2001,
-  "veroeffentlicht": false,
+  "veroeffentlicht": true,
   "verkauft": false,
   "beschreibung": "Motorrevision ",
   "fotos": [
