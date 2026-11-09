@@ -1,125 +1,201 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="jung consult – Automobile und Beratung. Entdecken Sie unsere Fahrzeuge und erfahren Sie mehr über unser Konzept.">
   <title>jung consult – Automobile und Beratung</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background: #101114;
-      color: #f4f1eb;
+      background: #151515;
+      color: #f5f5f5;
       font-family: Arial, sans-serif;
       text-align: center;
+      line-height: 1.6;
     }
-    header { padding: 65px 20px 35px; }
+
+    header {
+      padding: 70px 20px 35px;
+    }
+
     h1 {
-      color: #d4b879;
-      font-size: 40px;
-      margin-bottom: 12px;
-      font-weight: normal;
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      margin: 0 0 10px;
+    }
+
+    .subtitle {
+      color: #bcbcbc;
+      font-size: 17px;
       letter-spacing: 2px;
     }
-    .subtitle { color: #bcbcbc; font-size: 18px; }
-    main { max-width: 900px; margin: auto; padding: 25px; }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px 70px;
+    }
+
     h2 {
-      color: #d4b879;
-      font-weight: normal;
+      font-size: 24px;
+      font-weight: 400;
       margin-bottom: 30px;
     }
+
     .brands {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      margin: 30px auto 60px;
     }
+
     .brand {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      min-height: 190px;
-      padding: 25px;
-      background: #202125;
-      border: 1px solid #514735;
-      border-radius: 12px;
-      color: #f4f1eb;
+      min-height: 140px;
+      padding: 20px;
+      background: #242424;
+      border: 1px solid #484848;
+      border-radius: 8px;
+      color: #d4d4d4;
       text-decoration: none;
-      transition: 0.2s;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      transition: background 0.3s, border-color 0.3s;
     }
-    .brand:hover {
-      background: #303034;
+
+    .brand:hover,
+    .brand:focus-visible {
+      background: #303030;
       border-color: #d4b879;
+      color: #ffffff;
     }
-    .brand img {
-      width: 105px;
-      height: 85px;
-      object-fit: contain;
+
+    .concept {
+      max-width: 750px;
+      margin: 0 auto;
+      color: #c5c5c5;
+      font-size: 17px;
     }
-    .brand span { font-size: 20px; }
+
+    .concept h2 {
+      color: #d4b879;
+    }
+
     footer {
-      padding: 55px 20px;
-      color: #aaa;
-      line-height: 1.9;
+      padding: 30px 20px;
+      border-top: 1px solid #333333;
+      color: #aaaaaa;
+      font-size: 14px;
     }
-    footer a { color: #d4b879; }
-    .legal a { margin: 0 12px; }
-    @media (max-width: 480px) {
-      h1 { font-size: 30px; }
-      .brands { gap: 12px; }
-      .brand { min-height: 145px; padding: 12px; }
-      .brand img { width: 75px; height: 65px; }
-      .brand span { font-size: 15px; }
+
+    footer a {
+      color: #d4b879;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .brands {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .brand {
+        min-height: 100px;
+        font-size: 19px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>jung consult</h1>
-    <p class="subtitle">Automobile und Beratung</p>
+    <div class="subtitle">AUTOMOBILE & BERATUNG</div>
   </header>
 
   <main>
-    <h2>Unsere Fahrzeugmarken</h2>
-    <div class="brands">
-      <a class="brand" href="porsche.html">
-        <img src="https://cdn.simpleicons.org/porsche/D4B879"
-             alt="Porsche Logo">
-        <span>Porsche</span>
-      </a>
 
-      <a class="brand" href="mercedes.html">
-        <img src="https://cdn.simpleicons.org/mercedes/D4B879"
-             alt="Mercedes-Benz Logo">
-        <span>Mercedes-Benz</span>
-      </a>
+    <section>
+      <h2>Entdecken Sie unsere Fahrzeuge</h2>
 
-      <a class="brand" href="volkswagen.html">
-        <img src="https://cdn.simpleicons.org/volkswagen/D4B879"
-             alt="Volkswagen Logo">
-        <span>Volkswagen</span>
-      </a>
+      <div class="brands">
+        <a class="brand" href="porsche.html">
+          PORSCHE
+        </a>
 
-      <a class="brand" href="gmc.html">
-        <img src="https://cdn.simpleicons.org/gmc/D4B879"
-             alt="GMC Logo">
-        <span>GMC</span>
-      </a>
-    </div>
+        <a class="brand" href="mercedes.html">
+          MERCEDES-BENZ
+        </a>
+
+        <a class="brand" href="volkswagen.html">
+          VOLKSWAGEN
+        </a>
+
+        <a class="brand" href="gmc.html">
+          GMC
+        </a>
+      </div>
+    </section>
+
+    <section class="concept">
+      <h2>Unser Konzept</h2>
+
+      <p>
+        Bei jung consult stehen die Fahrzeuge
+        und ihr technischer Zustand im Mittelpunkt.
+      </p>
+
+      <p>
+        Wir beschäftigen uns insbesondere mit
+        Fahrzeugen, die technische Aufmerksamkeit
+        benötigen. Durch gezielte Prüfung,
+        fachgerechte Instandsetzung und sorgfältige
+        Vorbereitung schaffen wir die Grundlage
+        für einen transparenten Fahrzeugverkauf.
+      </p>
+
+      <p>
+        Unser Anspruch ist es, den tatsächlichen
+        technischen Zustand eines Fahrzeugs
+        nachvollziehbar darzustellen.
+      </p>
+    </section>
+
   </main>
 
   <footer>
-    <p>jung consult – Automobile und Beratung</p>
-    <p>Kontakt:
-      <a href="mailto:jung-consult@gmx.de">
-        jung-consult@gmx.de
-      </a>
-    </p>
-    <p class="legal">
+    <p>© jung consult – Automobile & Beratung</p>
+
+    <p>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
+      <a href="mailto:jung-consult@gmx.de">Kontakt</a>
     </p>
   </footer>
+
 </body>
 </html>
