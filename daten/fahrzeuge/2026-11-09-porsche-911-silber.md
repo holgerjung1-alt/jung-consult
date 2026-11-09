@@ -3,7 +3,9 @@
   "marke": "Porsche",
   "modell": "996",
   "baujahr": 2001,
+  "veroeffentlicht": false,
   "verkauft": false,
+  "beschreibung": "Motorrevision ",
   "fotos": [
     "/media/IMG_1018.jpeg"
   ]
