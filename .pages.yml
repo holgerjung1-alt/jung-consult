@@ -46,6 +46,11 @@ content:
       - name: preis
         label: Angebotspreis in Euro
         type: number
+        
+      - name: veroeffentlicht
+        label: Veröffentlichen
+        type: boolean
+        default: false
 
       - name: verkauft
         label: Fahrzeug verkauft
