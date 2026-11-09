@@ -1,0 +1,60 @@
+
+name: Fahrzeugdaten aktualisieren
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "daten/fahrzeuge/**"
+      - ".github/workflows/fahrzeuge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fahrzeuge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Fahrzeugliste erstellen
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          fahrzeuge = []
+
+          for datei in sorted(Path("daten/fahrzeuge").glob("*")):
+              if datei.suffix not in (".md", ".json"):
+                  continue
+
+              try:
+                  daten = json.loads(datei.read_text(encoding="utf-8"))
+              except (ValueError, UnicodeError):
+                  continue
+
+              if daten.get("veroeffentlicht") is True:
+                  daten["id"] = datei.stem
+                  if daten.get("verkauft"):
+                      daten.pop("preis", None)
+                  fahrzeuge.append(daten)
+
+          Path("fahrzeuge.json").write_text(
+              json.dumps(fahrzeuge, ensure_ascii=False, indent=2),
+              encoding="utf-8"
+          )
+          PY
+
+      - name: Fahrzeugliste speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fahrzeuge.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Fahrzeugliste aktualisieren"
+            git push
+          fi
