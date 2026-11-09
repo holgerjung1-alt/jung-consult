@@ -4,75 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jung Consult | Automobile & Beratung</title>
+  <title>Jung-Consult – Automobile und Beratung</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: #101114;
-      color: #f4f1eb;
+      background: #151515;
+      color: #f5f5f5;
       font-family: Arial, sans-serif;
+      text-align: center;
     }
-    header {
-      padding: 28px 8%;
-      border-bottom: 1px solid #34302a;
-      letter-spacing: 3px;
-      font-weight: bold;
+    header { padding: 65px 20px 35px; }
+    h1 { font-size: 36px; margin-bottom: 12px; }
+    .subtitle { color: #bcbcbc; font-size: 18px; }
+    main { max-width: 900px; margin: auto; padding: 25px; }
+    h2 { font-weight: normal; margin-bottom: 30px; }
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
-    main {
-      min-height: 75vh;
+    .brand {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .line {
-      width: 70px;
-      height: 2px;
-      background: #c4a46b;
-      margin-bottom: 32px;
-    }
-    h1 {
-      font-size: clamp(42px, 9vw, 88px);
-      letter-spacing: 7px;
-      margin: 0;
-    }
-    h2 {
-      color: #c4a46b;
-      font-size: 18px;
-      font-weight: normal;
-      letter-spacing: 5px;
-      margin-top: 22px;
-    }
-    p {
-      color: #aaa9a7;
-      margin-top: 65px;
-      font-size: 16px;
-    }
-    footer {
-      text-align: center;
+      justify-content: center;
+      min-height: 170px;
       padding: 25px;
-      color: #777;
-      font-size: 13px;
-      border-top: 1px solid #34302a;
+      background: #252525;
+      border: 1px solid #444;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .brand:hover { background: #383838; }
+    .brand img {
+      max-width: 100%;
+      max-height: 105px;
+      object-fit: contain;
+    }
+    .brand span { font-size: 25px; font-weight: bold; }
+    footer { padding: 55px 20px; color: #aaa; }
+    @media (max-width: 480px) {
+      h1 { font-size: 27px; }
+      .brands { gap: 10px; }
+      .brand { min-height: 120px; padding: 12px; }
+      .brand span { font-size: 18px; }
     }
   </style>
 </head>
 <body>
-  <header>JUNG CONSULT</header>
+  <header>
+    <h1>Jung-Consult</h1>
+    <p class="subtitle">Automobile und Beratung</p>
+  </header>
+
   <main>
-    <div class="line"></div>
-    <h1>JUNG CONSULT</h1>
-    <h2>AUTOMOBILE & BERATUNG</h2>
-    <p>Unsere neue Website befindet sich im Aufbau.</p>
+    <h2>Unsere Fahrzeugmarken</h2>
+    <div class="brands">
+      <a class="brand" href="porsche.html">
+        <span>Porsche</span>
+      </a>
+      <a class="brand" href="mercedes.html">
+        <span>Mercedes-Benz</span>
+      </a>
+      <a class="brand" href="volkswagen.html">
+        <span>Volkswagen</span>
+      </a>
+      <a class="brand" href="gmc.html">
+        <span>GMC</span>
+      </a>
+    </div>
   </main>
-<footer>
-  Jung Consult · Automobile & Beratung<br>
-  <a href="impressum.html" style="color:#c4a46b;">
-    Impressum
-  </a>
-</footer>
+
+  <footer>
+    <p>Jung-Consult – Automobile und Beratung</p>
+    <p>Kontakt: jung-consult@gmx.de</p>
+  </footer>
 </body>
 </html>
