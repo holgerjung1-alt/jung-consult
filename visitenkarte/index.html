@@ -1,1 +1,43 @@
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holger Jung | jung consult</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#f5efe3;font-family:Arial,sans-serif;text-align:center}
+main{max-width:440px;margin:35px auto;padding:25px 20px}
+.card{border:1px solid #b99755;border-radius:15px;padding:35px 16px;background:#191919}
+h1{font-size:31px;margin:28px 0 18px}
+.website{color:#d7b675;font-size:21px;font-weight:bold}
+a{color:#f5efe3;text-decoration:none;overflow-wrap:anywhere}
+p{line-height:1.8}
+.line{height:1px;background:#b99755;margin:25px 0}
+.car{font-size:24px;color:#d7b675;font-style:italic;letter-spacing:2px;margin:28px 0}
+.btn{display:block;background:#c7a765;color:#141414;padding:15px;border-radius:9px;font-weight:bold;margin-top:14px}
+.secondary{background:transparent;color:#d7b675;border:1px solid #b99755}
+small{color:#aaa}
+</style>
+</head>
+<body>
+<main>
+<section class="card">
+<div class="website">www.jung-consult.de</div>
+<div class="line"></div>
+<h1>Holger Jung</h1>
+<p><a href="mailto:holger.jung@jung-consult.de">holger.jung@jung-consult.de</a></p>
+<p><a href="tel:+4915116229948">0151 / 16 22 99 48</a></p>
+<div class="line"></div>
+<div class="car">911 · 996</div>
+<a class="btn" id="save" download="Holger_Jung.vcf">Kontakt speichern</a>
+<a class="btn secondary" href="https://www.jung-consult.de">Website besuchen</a>
+</section>
+<p><small>jung consult · Automobile & Beratung</small></p>
+</main>
+<script>
+const vcard=["BEGIN:VCARD","VERSION:3.0","N:Jung;Holger;;;","FN:Holger Jung","ORG:jung consult","TEL;TYPE=CELL:+4915116229948","EMAIL:holger.jung@jung-consult.de","URL:https://www.jung-consult.de","END:VCARD"].join("\r\n");
+document.getElementById("save").href="data:text/vcard;charset=utf-8,"+encodeURIComponent(vcard);
+</script>
+</body>
+</html>
