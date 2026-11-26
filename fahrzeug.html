@@ -110,7 +110,7 @@ async function ladeFahrzeug() {
     if (!antwort.ok) throw new Error("Ladefehler");
 
     const fahrzeuge = await antwort.json();
-    const auto = fahrzeuge.find(f => f.id === id);
+    const auto = fahrzeuge.find(f => f.id === id && f.veroeffentlicht === true);
 
     if (!auto) {
       titel.textContent = "Fahrzeug nicht gefunden";
