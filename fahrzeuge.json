@@ -11,5 +11,15 @@
       "/media/IMG_1018.jpeg"
     ],
     "id": "2026-11-09-porsche-911-silber"
+  },
+  {
+    "titel": "Jeep Wrangler",
+    "marke": "Jeep",
+    "veroeffentlicht": true,
+    "verkauft": false,
+    "fotos": [
+      "/media/IMG_3732.jpg"
+    ],
+    "id": "2026-11-26-jeep-wrangler"
   }
 ]
