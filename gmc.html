@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GMC | jung-consult</title>
+<meta name="description" content="GMC Fahrzeuge bei jung-consult">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#151515;color:#f5f5f5;font-family:Arial,sans-serif;line-height:1.6}header,main,footer{max-width:900px;margin:auto;padding:28px 20px}header{border-bottom:1px solid #444}h1{font-weight:400}a{color:#d4b879}article{background:#242424;border:1px solid #484848;border-radius:8px;padding:20px;margin:20px 0}img{max-width:100%;height:auto;border-radius:6px}footer{border-top:1px solid #444;color:#aaa}
+</style>
+</head>
+<body><header><a href="index.html">← jung-consult</a><h1>GMC</h1></header><main><h2>Unsere Fahrzeuge</h2><div id="fahrzeugliste"><p>Fahrzeugbestand wird geladen …</p></div></main><footer><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
+<script>
+(async()=>{const el=document.getElementById('fahrzeugliste');try{const r=await fetch('fahrzeuge.json');if(!r.ok)throw Error('Liste nicht verfügbar');const autos=(await r.json()).filter(a=>String(a.marke||'').toLowerCase()==="gmc"&&a.veroeffentlicht!==false);el.replaceChildren();if(!autos.length){el.textContent='Zurzeit sind keine Fahrzeuge dieser Marke veröffentlicht.';return}for(const a of autos){const box=document.createElement('article');const h=document.createElement('h3');h.textContent=a.titel||a.modell||'Fahrzeug';box.append(h);if(Array.isArray(a.fotos)&&a.fotos[0]){const img=document.createElement('img');img.src=a.fotos[0];img.alt=h.textContent;box.append(img)}const p=document.createElement('p');p.textContent=[a.modell,a.baujahr,a.verkauft?'Verkauft':a.preis!=null?Number(a.preis).toLocaleString('de-DE')+' €':''].filter(Boolean).join(' · ');box.append(p);el.append(box)}}catch(e){el.textContent='Die Fahrzeugliste ist derzeit nicht verfügbar.'}})();
+</script></body></html>
