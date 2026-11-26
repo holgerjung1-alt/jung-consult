@@ -213,14 +213,15 @@ async function ladeFahrzeuge() {
     if (!antwort.ok) return;
 
     const fahrzeuge = await antwort.json();
-    if (!fahrzeuge.length) return;
+    const sichtbare = fahrzeuge.filter(auto => auto.veroeffentlicht === true);
+    if (!sichtbare.length) return;
 
     const bereich = document.createElement("section");
     const titel = document.createElement("h2");
     titel.textContent = "Unsere Fahrzeuge";
     bereich.appendChild(titel);
 
-    for (const auto of fahrzeuge) {
+    for (const auto of sichtbare) {
       const karte = document.createElement("article");
 
       const name = document.createElement("h3");
