@@ -1,7 +1,7 @@
 {
   "titel": "Jeep Wrangler",
   "marke": "Jeep",
-  "veroeffentlicht": false,
+  "veroeffentlicht": true,
   "verkauft": false,
   "fotos": [
     "/media/IMG_3732.jpg"
