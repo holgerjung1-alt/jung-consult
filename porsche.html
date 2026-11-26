@@ -95,7 +95,7 @@ async function ladePorsche() {
 
     const alle = await antwort.json();
     const porsche = alle.filter(
-      auto => auto.marke?.toLowerCase() === "porsche"
+      auto => auto.marke?.toLowerCase() === "porsche" && auto.veroeffentlicht === true
     );
 
     if (porsche.length === 0) {
