@@ -1,0 +1,36 @@
+name: Sync Pages CMS vehicles
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'daten/fahrzeuge/**'
+      - 'scripts/build_fahrzeuge.py'
+      - '.github/workflows/sync-fahrzeuge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-fahrzeuge-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Build published vehicle feed
+        run: python3 scripts/build_fahrzeuge.py
+      - name: Commit updated vehicle feed
+        run: |
+          if ! git diff --quiet -- fahrzeuge.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add fahrzeuge.json
+            git commit -m "Sync public vehicle list from Pages CMS"
+            git push
+          fi
