@@ -222,7 +222,7 @@ async function ladeFahrzeuge() {
     bereich.appendChild(titel);
 
     for (const auto of sichtbare) {
-      const karte = document.createElement("article");
+      const karte = document.createElement("article");\n      karte.style.cssText = "background:#242424;border:1px solid #484848;border-radius:8px;padding:20px;margin:18px auto;max-width:700px";
 
       const name = document.createElement("h3");
       name.textContent = auto.titel || "Fahrzeug";
@@ -233,7 +233,7 @@ async function ladeFahrzeuge() {
         bild.src = auto.fotos[0];
         bild.alt = auto.titel || "Fahrzeug";
         bild.style.maxWidth = "100%";
-        karte.appendChild(bild);
+        const bildLink = document.createElement("a");\n        bildLink.href = "fahrzeug.html?id=" + encodeURIComponent(auto.id);\n        bildLink.setAttribute("aria-label", "Fahrzeugdetails: " + (auto.titel || "Fahrzeug"));\n        bild.style.cursor = "pointer";\n        bildLink.appendChild(bild);\n        karte.appendChild(bildLink);
       }
 
       const info = document.createElement("p");
@@ -253,7 +253,7 @@ async function ladeFahrzeuge() {
         karte.appendChild(preis);
       }
 
-      bereich.appendChild(karte);
+      const details = document.createElement("a");\n      details.href = "fahrzeug.html?id=" + encodeURIComponent(auto.id);\n      details.textContent = "Fahrzeugdetails ansehen";\n      details.style.color = "#d4b879";\n      karte.appendChild(details);\n      bereich.appendChild(karte);
     }
 
     document.querySelector("main").appendChild(bereich);
