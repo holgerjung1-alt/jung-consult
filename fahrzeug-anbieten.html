@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fahrzeug anbieten | jung-consult</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#151515;color:#f5f5f5;font:16px/1.6 Arial,sans-serif}main{max-width:740px;margin:35px auto;padding:24px}h1{font-weight:400;letter-spacing:2px}a{color:#d4b879}label{display:block;margin:18px 0 5px}input,select,textarea{display:block;width:100%;padding:12px;border:1px solid #666;border-radius:6px;background:#252525;color:white;font:inherit}textarea{min-height:100px}fieldset{border:1px solid #555;border-radius:8px;margin:22px 0;padding:16px}legend{color:#d4b879;padding:0 8px}small{color:#bbb}button{background:#d4b879;border:0;border-radius:6px;padding:13px 20px;font:inherit;color:#151515}button:disabled{opacity:.55;cursor:not-allowed}.notice{padding:14px;border:1px solid #d4b879;border-radius:6px}input[type=checkbox]{display:inline;width:auto;margin-right:8px}
+</style></head><body><main><p><a href="index.html">← Zur Startseite</a></p><h1>Fahrzeug anbieten</h1><p>Sie möchten Ihr Fahrzeug über jung-consult anbieten? Tragen Sie die wichtigsten Angaben ein. Eine Registrierung ist nicht erforderlich.</p>
+<p class="notice"><strong>Vorbereitung:</strong> Das Formular ist noch nicht freigeschaltet. Es werden derzeit keine Angebote versendet oder gespeichert.</p>
+<form id="angebot">
+<fieldset><legend>Fahrzeug</legend>
+<label for="marke">Marke *</label><input id="marke" name="marke" required maxlength="80">
+<label for="modell">Modell *</label><input id="modell" name="modell" required maxlength="100">
+<label for="baujahr">Baujahr *</label><input id="baujahr" name="baujahr" type="number" min="1900" max="2030" required>
+<label for="km">Kilometerstand *</label><input id="km" name="kilometerstand" type="number" min="0" max="3000000" required>
+<label for="preis">Gewünschter Verkaufspreis in Euro *</label><input id="preis" name="preisvorstellung" type="number" min="0" step="1" required>
+<label for="zustand">Zustand, bekannte Mängel und Besonderheiten *</label><textarea id="zustand" name="zustand" maxlength="5000" required></textarea>
+<label for="fotos">Fahrzeugfotos (maximal 10, JPEG/PNG/WebP)</label><input id="fotos" name="fotos" type="file" accept="image/jpeg,image/png,image/webp" multiple><small>Die sichere Übertragung der Bilder wird vor Freischaltung ergänzt.</small>
+</fieldset>
+<fieldset><legend>Kontakt</legend>
+<label for="name">Name *</label><input id="name" name="name" autocomplete="name" required maxlength="120">
+<label for="email">E-Mail-Adresse *</label><input id="email" name="email" type="email" autocomplete="email" required>
+<label for="telefon">Telefon (optional)</label><input id="telefon" name="telefon" type="tel" autocomplete="tel">
+</fieldset>
+<p><label><input type="checkbox" required>Ich habe die <a href="datenschutz.html">Datenschutzhinweise</a> gelesen und möchte zur Bearbeitung meines Angebots kontaktiert werden.</label></p>
+<button type="submit" disabled>Absenden – noch nicht verfügbar</button>
+</form><p><small>* Pflichtfeld. Eine Veröffentlichung erfolgt ausschließlich nach Prüfung und Vereinbarung.</small></p>
+</main><script>document.getElementById('angebot').addEventListener('submit',e=>e.preventDefault());</script></body></html>
