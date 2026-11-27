@@ -1,4 +1,3 @@
-
 media:
   input: media
   output: /media
@@ -25,45 +24,60 @@ content:
         label: Fahrzeugbezeichnung
         type: string
         required: true
-
       - name: marke
-        label: Hersteller
+        label: Marke
         type: string
         required: true
-
       - name: modell
         label: Modell
         type: string
-
-      - name: baujahr
-        label: Baujahr
+        required: true
+      - name: erstzulassung
+        label: Erstzulassung (JJJJ-MM-TT)
+        type: string
+        required: true
+      - name: wunschpreis_eur
+        label: Wunschpreis in Euro (intern)
         type: number
-
+        required: true
+      - name: kraftstoffart
+        label: Kraftstoffart
+        type: string
+        required: true
+      - name: motorisierung
+        label: Motorisierung
+        type: string
+        required: true
       - name: kilometerstand
         label: Kilometerstand
         type: number
-
-      - name: preis
-        label: Angebotspreis in Euro
+        required: true
+      - name: getriebe
+        label: Getriebe
+        type: string
+        required: true
+      - name: leistung_kw
+        label: Leistung in kW
         type: number
-        
+        required: true
+      - name: verkaufsart
+        label: Verkaufsart (direktverkauf oder vermittlung)
+        type: string
+        required: true
+      - name: status
+        label: Status (verfuegbar oder verkauft)
+        type: string
+        default: verfuegbar
       - name: veroeffentlicht
         label: Veröffentlichen
         type: boolean
         default: false
-
-      - name: verkauft
-        label: Fahrzeug verkauft
-        type: boolean
-
       - name: beschreibung
         label: Fahrzeugbeschreibung
         type: text
-
       - name: instandsetzungen
         label: Technische Instandsetzungen
         type: text
-
       - name: fotos
         label: Fahrzeugfotos
         type: image
