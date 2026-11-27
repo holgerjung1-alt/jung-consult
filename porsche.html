@@ -112,7 +112,7 @@ async function ladePorsche() {
         const bild = document.createElement("img");
         bild.src = auto.fotos[0];
         bild.alt = auto.titel || "Porsche";
-        karte.appendChild(bild);
+        const bildLink = document.createElement("a");\n        bildLink.href = "fahrzeug.html?id=" + encodeURIComponent(auto.id);\n        bildLink.setAttribute("aria-label", "Fahrzeugdetails: " + (auto.titel || "Porsche"));\n        bildLink.appendChild(bild);\n        karte.appendChild(bildLink);
       }
 
       const titel = document.createElement("h2");
